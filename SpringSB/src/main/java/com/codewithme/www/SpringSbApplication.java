@@ -8,7 +8,7 @@ public class SpringSbApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringSbApplication.class, args);
-		System.out.println("Hello World");
+		System.out.println("Hello World pushing it to jenkins");
 	}
 
 }
