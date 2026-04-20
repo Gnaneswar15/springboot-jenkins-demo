@@ -22,13 +22,14 @@ pipeline {
             }
         }
 
-        stage('Stop Old App') {
-            steps {
-                bat '''
-                for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9091') do taskkill /F /PID %%a
-                '''
-            }
-        }
+       stage('Stop Old App') {
+    steps {
+        bat '''
+        for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9091') do taskkill /F /PID %%a
+        exit /b 0
+        '''
+    }
+}
 
         stage('Run App') {
             steps {
