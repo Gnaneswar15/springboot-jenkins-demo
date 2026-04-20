@@ -1,13 +1,28 @@
-package com.codewithme.www;
+package com.codewtihme.www.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class HomeController {
 
     @GetMapping("/")
-    public String home() {
-        return "Hello from Jenkins + Spring Boot!";
+    public String loginPage() {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password) {
+
+        if(username.equals("admin") && password.equals("1234")) {
+            return "home";
+        }
+
+        return "login";
+    }
+
+    @GetMapping("/home")
+    public String homePage() {
+        return "home";
     }
 }
