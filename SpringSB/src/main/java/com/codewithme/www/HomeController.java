@@ -1,4 +1,4 @@
-package com.codewtihme.www.controller;
+package com.codewithme.www.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
