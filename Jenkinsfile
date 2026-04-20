@@ -34,7 +34,7 @@ pipeline {
         stage('Run App') {
             steps {
                 dir('SpringSB') {
-                    bat 'start java -jar target/SpringSB-0.0.1-SNAPSHOT.jar'
+                    bat 'java -jar target/SpringSB-0.0.1-SNAPSHOT.jar'
                 }
             }
         }
