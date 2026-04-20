@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
+        jdk 'JDK17'
+    }
+
+    stages {
+
+        stage('Clone Code') {
+            steps {
+                git 'https://github.com/Gnaneswar15/springboot-jenkins-demo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
+
+        stage('Run App') {
+            steps {
+                bat 'start java -jar target/SpringSB-0.0.1-SNAPSHOT.jar'
+            }
+        }
+    }
+}
