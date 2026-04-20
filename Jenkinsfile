@@ -24,7 +24,9 @@ pipeline {
 
         stage('Stop Old App') {
             steps {
-                bat 'taskkill /F /IM java.exe || exit 0'
+                bat '''
+                for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9091') do taskkill /F /PID %%a
+                '''
             }
         }
 
